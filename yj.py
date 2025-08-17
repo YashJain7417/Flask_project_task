@@ -1,6 +1,6 @@
 # Importing flask module in the project is mandatory
 # An object of Flask class is our WSGI application.
-from flask import Flask
+from flask import Flask,  jsonify
 
 # Flask constructor takes the name of 
 # current module (__name__) as argument.
@@ -13,6 +13,13 @@ app = Flask(__name__)
 # ‘/’ URL is bound with hello_world() function.
 def hello_world():
     return 'Hello World 2nd branch'
+@app.route('/api')
+def api():
+    data = {
+        "name": "Yash",
+        "role": "DevOps"
+    }
+    return jsonify(data)
 
 # main driver function
 if __name__ == '__main__':
